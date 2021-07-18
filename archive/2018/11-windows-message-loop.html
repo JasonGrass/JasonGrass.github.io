@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Windows 消息循环 | 鱼仔布丁</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/assets/img/favicon.ico">
+    <meta name="description" content="木头上晒太阳的猫">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.fee5bc7b.css" as="style"><link rel="preload" href="/assets/js/app.722109d5.js" as="script"><link rel="preload" href="/assets/js/3.ffa6ba0a.js" as="script"><link rel="preload" href="/assets/js/1.3a98487b.js" as="script"><link rel="preload" href="/assets/js/8.ae1aa72b.js" as="script"><link rel="prefetch" href="/assets/js/10.b8247354.js"><link rel="prefetch" href="/assets/js/100.3c368576.js"><link rel="prefetch" href="/assets/js/101.ad12d5e8.js"><link rel="prefetch" href="/assets/js/102.fd4a0de0.js"><link rel="prefetch" href="/assets/js/103.b2635f51.js"><link rel="prefetch" href="/assets/js/104.ac978358.js"><link rel="prefetch" href="/assets/js/11.894d3655.js"><link rel="prefetch" href="/assets/js/12.415b553e.js"><link rel="prefetch" href="/assets/js/13.bfd4873a.js"><link rel="prefetch" href="/assets/js/14.dc2624d4.js"><link rel="prefetch" href="/assets/js/15.9d24ecb7.js"><link rel="prefetch" href="/assets/js/16.ee697a2c.js"><link rel="prefetch" href="/assets/js/17.ec12f5e4.js"><link rel="prefetch" href="/assets/js/18.fb327192.js"><link rel="prefetch" href="/assets/js/19.cf12fe57.js"><link rel="prefetch" href="/assets/js/20.347b80ae.js"><link rel="prefetch" href="/assets/js/21.37f3d8f5.js"><link rel="prefetch" href="/assets/js/22.86f77293.js"><link rel="prefetch" href="/assets/js/23.6eddb38c.js"><link rel="prefetch" href="/assets/js/24.603560c1.js"><link rel="prefetch" href="/assets/js/25.53c4b8ce.js"><link rel="prefetch" href="/assets/js/26.77e77b5e.js"><link rel="prefetch" href="/assets/js/27.13a9a31e.js"><link rel="prefetch" href="/assets/js/28.93c3791b.js"><link rel="prefetch" href="/assets/js/29.c774e4ec.js"><link rel="prefetch" href="/assets/js/30.ef41e4cb.js"><link rel="prefetch" href="/assets/js/31.ec316998.js"><link rel="prefetch" href="/assets/js/32.572285c4.js"><link rel="prefetch" href="/assets/js/33.7a8dcd66.js"><link rel="prefetch" href="/assets/js/34.7404e5b8.js"><link rel="prefetch" href="/assets/js/35.9f8bb39a.js"><link rel="prefetch" href="/assets/js/36.eb0d6f2d.js"><link rel="prefetch" href="/assets/js/37.72609772.js"><link rel="prefetch" href="/assets/js/38.c54c9c8f.js"><link rel="prefetch" href="/assets/js/39.05b78cbd.js"><link rel="prefetch" href="/assets/js/4.46d042b8.js"><link rel="prefetch" href="/assets/js/40.f35b9671.js"><link rel="prefetch" href="/assets/js/41.bd28cc68.js"><link rel="prefetch" href="/assets/js/42.1891c6a4.js"><link rel="prefetch" href="/assets/js/43.d547be25.js"><link rel="prefetch" href="/assets/js/44.9a2fd1d3.js"><link rel="prefetch" href="/assets/js/45.a85af762.js"><link rel="prefetch" href="/assets/js/46.743d84bb.js"><link rel="prefetch" href="/assets/js/47.ea9fbde6.js"><link rel="prefetch" href="/assets/js/48.7b18d4dd.js"><link rel="prefetch" href="/assets/js/49.f2a554f0.js"><link rel="prefetch" href="/assets/js/5.158e8413.js"><link rel="prefetch" href="/assets/js/50.0910163e.js"><link rel="prefetch" href="/assets/js/51.f72d0b8e.js"><link rel="prefetch" href="/assets/js/52.8386ed45.js"><link rel="prefetch" href="/assets/js/53.de972548.js"><link rel="prefetch" href="/assets/js/54.85487bd4.js"><link rel="prefetch" href="/assets/js/55.33e4c5f4.js"><link rel="prefetch" href="/assets/js/56.45316865.js"><link rel="prefetch" href="/assets/js/57.2116fd77.js"><link rel="prefetch" href="/assets/js/58.89c4a5a3.js"><link rel="prefetch" href="/assets/js/59.692850dd.js"><link rel="prefetch" href="/assets/js/6.9afe064a.js"><link rel="prefetch" href="/assets/js/60.6f533d80.js"><link rel="prefetch" href="/assets/js/61.9ec86b0f.js"><link rel="prefetch" href="/assets/js/62.c9360bb6.js"><link rel="prefetch" href="/assets/js/63.a8c2fda1.js"><link rel="prefetch" href="/assets/js/64.a16b549c.js"><link rel="prefetch" href="/assets/js/65.cf5e70af.js"><link rel="prefetch" href="/assets/js/66.f3157fe9.js"><link rel="prefetch" href="/assets/js/67.790195c5.js"><link rel="prefetch" href="/assets/js/68.7ae48210.js"><link rel="prefetch" href="/assets/js/69.96dc51c6.js"><link rel="prefetch" href="/assets/js/7.401cbcd8.js"><link rel="prefetch" href="/assets/js/70.11a40e4a.js"><link rel="prefetch" href="/assets/js/71.b6ae7d87.js"><link rel="prefetch" href="/assets/js/72.512a0b93.js"><link rel="prefetch" href="/assets/js/73.05b98a6a.js"><link rel="prefetch" href="/assets/js/74.cddffd7b.js"><link rel="prefetch" href="/assets/js/75.54f3d3d3.js"><link rel="prefetch" href="/assets/js/76.5c783006.js"><link rel="prefetch" href="/assets/js/77.d13ac0e2.js"><link rel="prefetch" href="/assets/js/78.5671dbcc.js"><link rel="prefetch" href="/assets/js/79.4da19b56.js"><link rel="prefetch" href="/assets/js/80.d380237d.js"><link rel="prefetch" href="/assets/js/81.a62535b0.js"><link rel="prefetch" href="/assets/js/82.4ee21e5f.js"><link rel="prefetch" href="/assets/js/83.f81aa120.js"><link rel="prefetch" href="/assets/js/84.d95ff057.js"><link rel="prefetch" href="/assets/js/85.b5a5e396.js"><link rel="prefetch" href="/assets/js/86.d22d71d6.js"><link rel="prefetch" href="/assets/js/87.e6a7f2f7.js"><link rel="prefetch" href="/assets/js/88.8c5f4b95.js"><link rel="prefetch" href="/assets/js/89.ec26aa03.js"><link rel="prefetch" href="/assets/js/9.fb0332e4.js"><link rel="prefetch" href="/assets/js/90.792db713.js"><link rel="prefetch" href="/assets/js/91.09a53f53.js"><link rel="prefetch" href="/assets/js/92.ced0d4af.js"><link rel="prefetch" href="/assets/js/93.52e8c11d.js"><link rel="prefetch" href="/assets/js/94.2e06b855.js"><link rel="prefetch" href="/assets/js/95.e59f293e.js"><link rel="prefetch" href="/assets/js/96.24b2e58f.js"><link rel="prefetch" href="/assets/js/97.930bba0a.js"><link rel="prefetch" href="/assets/js/98.58dcffc0.js"><link rel="prefetch" href="/assets/js/99.b56329f8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fee5bc7b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>鱼仔布丁</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>木头上晒太阳的猫</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>鱼仔布丁</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/working-cell.png" alt="鱼仔布丁" class="logo"> <span class="site-name">鱼仔布丁</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Notes
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/course_note/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/course_note/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Archive
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/archive/2017/" class="nav-link"><i class="undefined"></i>
+  2017
+</a></li><li class="dropdown-item"><!----> <a href="/archive/2018/" class="nav-link router-link-active"><i class="undefined"></i>
+  2018
+</a></li><li class="dropdown-item"><!----> <a href="/archive/vuepress-blog/" class="nav-link"><i class="undefined"></i>
+  博客搭建相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/小零识/" class="nav-link"><i class="undefined"></i>
+  小零识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程/" class="nav-link"><i class="undefined"></i>
+  编程
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂文/" class="nav-link"><i class="undefined"></i>
+  杂文
+</a></li><li class="dropdown-item"><!----> <a href="/categories/博客/" class="nav-link"><i class="undefined"></i>
+  博客
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据/" class="nav-link"><i class="undefined"></i>
+  数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/笔记/" class="nav-link"><i class="undefined"></i>
+  笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/assets/img/working-cell.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    鱼仔布丁
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>94</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>13</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6><li class="social-item" data-v-828910c6><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-828910c6></i></li><li class="social-item" data-v-828910c6><i class="iconfont reco-bokeyuan" style="color:#849b87;" data-v-828910c6></i></li></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Notes
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/course_note/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/course_note/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Archive
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/archive/2017/" class="nav-link"><i class="undefined"></i>
+  2017
+</a></li><li class="dropdown-item"><!----> <a href="/archive/2018/" class="nav-link router-link-active"><i class="undefined"></i>
+  2018
+</a></li><li class="dropdown-item"><!----> <a href="/archive/vuepress-blog/" class="nav-link"><i class="undefined"></i>
+  博客搭建相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/小零识/" class="nav-link"><i class="undefined"></i>
+  小零识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程/" class="nav-link"><i class="undefined"></i>
+  编程
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂文/" class="nav-link"><i class="undefined"></i>
+  杂文
+</a></li><li class="dropdown-item"><!----> <a href="/categories/博客/" class="nav-link"><i class="undefined"></i>
+  博客
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据/" class="nav-link"><i class="undefined"></i>
+  数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/笔记/" class="nav-link"><i class="undefined"></i>
+  笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>🍉 2018 归档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/archive/2018/" aria-current="page" class="sidebar-link">目录说明</a></li><li><a href="/archive/2018/01-wpd-resources-ref.html" class="sidebar-link">笔记-WPF程序集资源文件的引用</a></li><li><a href="/archive/2018/02-TortoiseGit-ssh.html" class="sidebar-link">TortoiseGit配置ssh服务</a></li><li><a href="/archive/2018/03-data-share-over-progress-csharp.html" class="sidebar-link">C#进程间数据共享的简单实现</a></li><li><a href="/archive/2018/04-Archive-Nuget.html" class="sidebar-link">笔记归档 - Nuget入门</a></li><li><a href="/archive/2018/04-visual-key-table.html" class="sidebar-link">笔记归档 - 虚拟键码对照表</a></li><li><a href="/archive/2018/06-mac-command-line-beauty.html" class="sidebar-link">Mac 命令行美化</a></li><li><a href="/archive/2018/06-task-load-first.html" class="sidebar-link">使用 Task 实现提前加载</a></li><li><a href="/archive/2018/07-csharp-enumerator.html" class="sidebar-link">迭代器模式 与 C# IEnumerator/IEnumerable</a></li><li><a href="/archive/2018/07-vimium-shortcut.html" class="sidebar-link">Vimium 快捷键笔记</a></li><li><a href="/archive/2018/08-coding-standard-for-net.html" class="sidebar-link">读书笔记 - 改善 C# 程序的157个建议（部分）</a></li><li><a href="/archive/2018/08-deploy-asp.net-core-on-windows.html" class="sidebar-link">Windows 服务器部署 Asp.net core</a></li><li><a href="/archive/2018/08-ftp-server-on-windows.html" class="sidebar-link">在 Windows 系统上安装 FTP 服务</a></li><li><a href="/archive/2018/08-logstash-es-kibana-start.html" class="sidebar-link">ELK入门介绍</a></li><li><a href="/archive/2018/08-php-on-windows.html" class="sidebar-link">在 Windows 系统上安装 PHP 服务</a></li><li><a href="/archive/2018/08-vs-code-setting-sync.html" class="sidebar-link">同步 Visual Studio Code 的设置</a></li><li><a href="/archive/2018/11-does-not-provide-shell-access.html" class="sidebar-link">GITEE.COM does not provide shell access. 是怎么回事。</a></li><li><a href="/archive/2018/11-move-files-from-c-dick.html" class="sidebar-link">安全转移C盘中软件的缓存文件</a></li><li><a href="/archive/2018/11-wait-task-with-timeout.html" class="sidebar-link">实现可设置超时的Task</a></li><li><a href="/archive/2018/11-windows-message-loop.html" aria-current="page" class="active sidebar-link">Windows 消息循环</a></li><li><a href="/archive/2018/19-01-mutex.html" class="sidebar-link">Mutex 的正确打开方式</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Windows 消息循环</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>鱼仔布丁</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">Windows 消息循环</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>鱼仔布丁</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>11/16/2018</span></i> <i class="iconfont reco-eye" data-v-1ff7123e><span id="/archive/2018/11-windows-message-loop.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-1ff7123e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>Windows</span></i></div></div> <div class="theme-reco-content content__default"><p>Windows 消息循环 &amp;&amp; 消息循环在 WPF 中的应用</p> <p>使用 EN5 课件获得更好的阅读体验：</p> <p>【希沃白板5】课件分享 : 《Windows培训 - 消息循环》
+<a href="https://r302.cc/q2d1jB" target="_blank" rel="noopener noreferrer">https://r302.cc/q2d1jB<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+点击链接直接预览课件</p> <h1 id="_1-程序是怎么跑起来的"><a href="#_1-程序是怎么跑起来的" class="header-anchor">#</a> 1 程序是怎么跑起来的？</h1> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token keyword">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">&quot;Hello Cvte.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这是一段 C# Main 函数，如果不写 <code>Console.ReadLine();</code> ，则程序会“一闪而过”，写了 <code>Console.ReadLine();</code> 程序会阻塞，可以查看结果。
+下面看一段复杂一点点的：</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code>Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">&quot;Starting, Input Something:&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">string</span></span> input <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>input <span class="token operator">==</span> <span class="token string">&quot;exit&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>
+            <span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+            <span class="token punctuation">?</span> <span class="token interpolation-string"><span class="token string">$&quot;Your Input to lower is:</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">input<span class="token punctuation">.</span><span class="token function">ToLower</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">}</span></span><span class="token string">&quot;</span></span>
+            <span class="token punctuation">:</span> <span class="token string">&quot;You Inputted Nothing&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这里有一个 <code>while</code> 循环，这样程序就可以一直运行了，我们可以说：这个程序由这个 while 循环驱动。</p> <p>那，Windows 程序是由什么驱动的，答案呼之欲出：“消息循环”。</p> <p><img src="/assets/img/2018-11-16-10-49-38.606d9841.png" alt=""></p> <h1 id="_2-消息循环的数据结构"><a href="#_2-消息循环的数据结构" class="header-anchor">#</a> 2 消息循环的数据结构</h1> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>  
+    HWND hwnd<span class="token punctuation">;</span>      <span class="token comment">// 消息的目标窗口句柄</span>
+    UINT message<span class="token punctuation">;</span>   <span class="token comment">// 消息标识</span>
+    WPARAM wParam<span class="token punctuation">;</span>  <span class="token comment">// 16位的参数</span>
+    LPARAM lParam<span class="token punctuation">;</span>  <span class="token comment">// 32位的参数</span>
+    DWORD time<span class="token punctuation">;</span>     <span class="token comment">// 消息发生的时间</span>
+    POINT pt<span class="token punctuation">;</span>       <span class="token comment">// 消息发生时，鼠标的屏幕坐标</span>
+<span class="token punctuation">}</span> MSG<span class="token punctuation">,</span> <span class="token operator">*</span>PMSG<span class="token punctuation">;</span> 
+</code></pre></div><h2 id="_2-1-消息的分类"><a href="#_2-1-消息的分类" class="header-anchor">#</a> 2.1 消息的分类</h2> <p>消息的取值范围是 0x0000 - 0xFFFF。</p> <p>从 0x0000 到 0x03FF，为系统定义的消息，常见的 WM_PAINT、WM_CREATE 等均在其中；
+从 0x0400 到 0x7FFF，专用于用户自定义的消息，可以使用 WM_USER + x 的形式自行定义，其中WM_USER 的值就是 0x0400，x 取一个整数；
+从 0x8000 到 0xBFFF，从 Windows 95 开始，也用作用户自定义的消息范围，可以使用 WM_APP + x 的形式自行定义。
+根据微软的建议，WM_APP类消息用于程序之间的消息通信，而 WM_USER 类消息则最好用于某个特定的窗口类。
+微软自己遵循这一惯例，所以，公用控件的消息，如 TVM_DELETEITEM，基本都是 WM_USER 类属。
+从 0xC000 到 0xFFFF，这个区段的消息值保留给 RegisterWindowMessage 这个 API，此 API 可以接受一个字符串，把它变换成一个唯一的消息值。</p> <h1 id="_3-消息的处理流程"><a href="#_3-消息的处理流程" class="header-anchor">#</a> 3 消息的处理流程</h1> <p>消息产生 =&gt; 消息队列 =&gt; 消息循环 =&gt; 消息处理</p> <h2 id="_3-1-消息产生"><a href="#_3-1-消息产生" class="header-anchor">#</a> 3.1 消息产生</h2> <p>消息产生的源头</p> <ul><li><p>系统
+一部分由输入设备（键盘鼠标等）产生，如 WM_MOUSEMOVE 。<br>
+一部分由系统User库自己产生，User部分（或者是系统内的其他部分通过User部分）为了实现自身的正常行为或者管理功能而主动生成的。如 WM_WINDOWPOSCHANGED。</p></li> <li><p>应用程序自定义的消息</p></li></ul> <p>消息产生的方式</p> <p>这里说主要的两个消息产生函数</p> <ul><li><p>SendMessage
+等待消息处理完成后，SendMessage才返回。
+深入一点的表达式：等待窗口处理函数返回后，SendMessage才返回。</p></li> <li><p>PostMessage
+不等待消息处理完成，立刻返回。
+PostMessage只管发送消息，消息有没有被送到则并不关心，只要发送了消息，便立刻返回。</p></li></ul> <p>两个问题：
+问：消息产生之后到了哪里？<br>
+答：消息队列。</p> <p>问：SendMessage 产生的消息，会进入消息队列吗？
+答：在同一个线程内，SendMessage 会直接调用目标窗口的窗口过程函数处理消息，并等待其返回。
+跨线程的情况，SendMessage 会将消息发送到目标线程的消息队列（高优先级，排序在前）。然后等待目标线程的返回值。</p> <h2 id="_3-2-消息队列"><a href="#_3-2-消息队列" class="header-anchor">#</a> 3.2 消息队列</h2> <ul><li><p>系统消息队列
+接收输入设备的消息，分配给线程消息队列。<br>
+输入设备（键盘、鼠标或者其他）的驱动程序会把用户的操作输入转化成消息放置于系统队列中，然后系统会把此消息转到目标窗口所在线程的消息队列中等待处理。</p></li> <li><p>线程(UI)消息队列
+当前UI线程中的消息。<br>
+每一个GUI线程都会维护这样一个线程消息队列。（这个队列只有在线程调用 User 或者 GDI 函数时才会创建，默认并不创建）。然后线程消息队列中的消息会被本线程的消息循环（有时也被称为消息泵）派送到相应的窗口过程（也叫窗口回调函数）处理。</p></li></ul> <p>两个问题：
+问：消息队列属于谁？<br>
+答：属于UI线程（不属于窗口）。</p> <p>问：非UI线程有消息队列吗？
+没有。</p> <h2 id="_3-3-消息循环"><a href="#_3-3-消息循环" class="header-anchor">#</a> 3.3 消息循环</h2> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">GetMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+	<span class="token function">TranslateMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+	<span class="token function">DispatchMessage</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>   
+</code></pre></div><p>如上，消息循环就是一个 while 循环，与文章最开始提到 while 向呼应。<br>
+其中 <code>GetMessage</code> 取出消息，<code>TranslateMessage</code> 翻译消息，<code>DispatchMessage</code> 调度消息。</p> <p>问：消息循环属于谁？<br>
+答：每一个UI线程有一个消息循环（不是每一个窗口。）</p> <p>消息循环的另一个样子：</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>done<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">PeekMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> PM_REMOVE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>message <span class="token operator">==</span> WM_QUIT<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            done <span class="token operator">=</span> TRUE<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">TranslateMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">DispatchMessage</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 还可以驱动点别的事情，如 openGL 绘图。</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>分别来看：</p> <ul><li>取出消息</li></ul> <p>GetMessage<br>
+GetMessage会阻塞等待，直到取到一个消息。</p> <p>PeekMessage
+PeekMessage则不阻塞，立即返回。<br>
+PeekMessage有一个标志参数，这个标志参数指定了如果队列中如果有消息的话，PeekMessage 的行为。
+如果该标志中含有 PM_REMOVE，则 PeekMessage 会把新消息返回到 MSG 结构中，正如 GetMessage 的行为那样。
+如果标志中指定了 PM_NOREMOVE，则不会从消息队列中移除任何消息。</p> <ul><li>翻译消息
+望文生义地看，翻译消息是对消息数据结构进行某种转换吗？<br>
+不是的，TranslateMessage不修改原有消息，只在特定情况下产生新的消息。</li></ul> <p>TranslateMessage函数不修改由参数lpMsg指向的消息结构。<br>
+仅为那些由键盘驱动器映射为ASCII字符的键产生WM_CHAR消息。<br>
+如：<br>
+消息WM_KEYDOWN和WM_KEYUP组合产生一个WM_CHAR或WM_DEADCHAR消息。<br>
+消息WM_SYSKEYDOWN和WM_SYSKEYUP组合产生一个WM_SYSCHAR或 WM_SYSDEADCHAR 消息。</p> <p>所以，如果程序中没有字符处理的需要，这句是可以不要的。</p> <ul><li>分派消息
+将消息分配给 hwnd 指定的窗口函数，让其处理。<br>
+如果没有找到对应的窗口，则丢弃。</li></ul> <h2 id="_3-4-消息处理"><a href="#_3-4-消息处理" class="header-anchor">#</a> 3.4 消息处理</h2> <p>消息在消息循环中被分配到指定的窗口过程函数，由其处理。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 有删减的窗口过程函数</span>
+LRESULT CALLBACK <span class="token function">WndProc</span><span class="token punctuation">(</span>HWND hWnd<span class="token punctuation">,</span> UINT message<span class="token punctuation">,</span> WPARAM wParam<span class="token punctuation">,</span> LPARAM lParam<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">switch</span> <span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">case</span> WM_COMMAND<span class="token operator">:</span>
+	<span class="token keyword">case</span> WM_PAINT<span class="token operator">:</span>
+	<span class="token keyword">case</span> WM_CREATE<span class="token operator">:</span>
+	<span class="token keyword">default</span><span class="token operator">:</span>
+	<span class="token keyword">return</span> <span class="token function">DefWindowProc</span><span class="token punctuation">(</span>hWnd<span class="token punctuation">,</span> message<span class="token punctuation">,</span> wParam<span class="token punctuation">,</span> lParam<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>回顾两个问题：
+问：WndProc 函数由谁调用？
+答：DispatchMessage or SendMessage。
+从上文中可以看到，窗口过程函数不是有程序员自己调用的，而是系统在恰当的时机调用，这个时机就是 DispatchMessage or SendMessage。</p> <p>问：未处理的消息交给谁？
+答：DefWindowProc。
+DefWindowProc只处理关闭等感兴趣的消息，其它的消息则忽略。</p> <h2 id="回顾"><a href="#回顾" class="header-anchor">#</a> 回顾</h2> <p>消息队列和消息循环属于UI线程，窗口没有，其它普通线程没有。<br>
+窗口有自己的窗口过程函数，消息在这里被处理。<br>
+消息循环驱动整个程序跑起来。</p> <p>想一睹消息循环究竟是如何跑起来的？
+原始 win32 窗口是如何被创建的？</p> <p>在 VS 中，新建一个win32的窗口程序，即可看到。</p> <p><img src="/assets/img/2018-11-16-11-23-49.9db04bef.png" alt=""></p> <hr> <p>win32/MFC/WinForm/WPF 都依靠消息循环驱动，让程序跑起来。</p> <p><img src="/assets/img/2018-11-16-11-25-02.1c1f76b5.png" alt=""></p> <h1 id="_4-消息循环在-wpf-中的应用"><a href="#_4-消息循环在-wpf-中的应用" class="header-anchor">#</a> 4 消息循环在 WPF 中的应用</h1> <h1 id="_4-1-引入"><a href="#_4-1-引入" class="header-anchor">#</a> 4.1 引入</h1> <p>只听说过 Dispatcher ，哪里来的消息循环？</p> <p>先瞧一眼 WPF 启动运行堆栈：</p> <p><img src="/assets/img/2018-11-16-11-28-05.5346cfdd.png" alt=""></p> <p>可以发现 <code>PushFrameImpl</code> 这个方法。<br>
+去看其源码，就发现了熟悉的消息循环 ：</p> <p><img src="/assets/img/2018-11-16-11-29-23.cf785453.png" alt=""></p> <p>可以理解为：Dispatcher 对消息循环的操作进行了“封装” 。
+那，Dispatcher 是谁？</p> <h1 id="_4-2-dispatchcer"><a href="#_4-2-dispatchcer" class="header-anchor">#</a> 4.2 Dispatchcer</h1> <p>Provides services for managing the queue of work items for a thread.<br>
+提供用于管理线程工作项队列的服务。</p> <p>大部分WPF对象，都是 DispatcherObject。这意味着，可以在 DispatcherObject 中（如 Window 中），
+使用 this.Dispatchcer 获取到 Dispatchcer 。</p> <p><img src="/assets/img/2018-11-16-12-03-22.b212041f.png" alt=""></p> <p>一般我们会通过三种方式获取 Dispatchcer ：</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token comment">// App.Current.Dispatcher;（Application.Current.Dispatcher）</span>
+<span class="token class-name"><span class="token keyword">var</span></span> dispatcher1 <span class="token operator">=</span> App<span class="token punctuation">.</span>Current<span class="token punctuation">.</span>Dispatcher<span class="token punctuation">;</span>
+
+<span class="token comment">// CurrentDispatcher;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> dispatcher2 <span class="token operator">=</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Dispatcher<span class="token punctuation">.</span>CurrentDispatcher<span class="token punctuation">;</span>
+
+<span class="token comment">// System.Windows.Threading.DispatcherObject.Dispatcher;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> dispatcher3 <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>Dispatcher<span class="token punctuation">;</span>
+</code></pre></div><p>可分为两类：</p> <ul><li><p>当前线程的 Dispatcher：
+System.Windows.Threading.Dispatcher.CurrentDispatcher；</p></li> <li><p>创建对应对象的 Dispatcher:
+App.Current.Dispatcher;
+DispatcherObject.Dispatcher;</p></li></ul> <p>可参见：
+<a href="https://huangtengxiao.gitee.io/post/Why-not-Dispather.CurrentDispatcher.html" target="_blank" rel="noopener noreferrer">Why not Dispather.CurrentDispatcher - haungtengxiao<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>Dispatcher 和线程是什么关系？</p> <ul><li>Dispatcher 属于线程（与线程一一对应）。</li> <li>WPF的对象在获取this.Dispatcher属性时，不同对象取的都是同一个Dispatcher实例。（因为都是同一个UI线程创建的。）</li> <li>在默认的 WPF UI线程中：
+App.Current.Dispatcher = DispatcherObject.Dispatcher</li></ul> <p>所有的线程（UI线程，普通线程）都有 Dispatcher 吗？
+是的。</p> <p>在所有线程中，调用 System.Windows.Threading.Dispatcher.CurrentDispatcher
+都会得到一个属于这个线程的 Dispatcher 对象。（不用的时候不会创建）
+所以：如果你想在一个后台线程中，使用 Dispatcher.CurrentDispatcher.Invoke
+将操作封送到 UI 线程，是做不到的。因为这时候获取到的 Dispatcher 不是UI线程的 Dispatcher , 而是当前线程自己的 Dispatcher。</p> <h2 id="_4-3-dispatcher-如何实现跨线程的调用。"><a href="#_4-3-dispatcher-如何实现跨线程的调用。" class="header-anchor">#</a> 4.3 Dispatcher 如何实现跨线程的调用。</h2> <p>最常使用 Dispatcher 的创建就是，在后台线程更新 UI ，那 Dispatcher 是如何做到的呢。</p> <p>当你调用</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code>Application<span class="token punctuation">.</span>Current<span class="token punctuation">.</span>Dispatcher<span class="token punctuation">.</span><span class="token function">Invoke</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+<span class="token punctuation">{</span>
+    SendMessageBtn<span class="token punctuation">.</span>Content <span class="token operator">=</span> <span class="token string">&quot;更新按钮&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>时，Dispatcher 究竟做了什么，把操作转移到 UI 线程上去了。</p> <blockquote><p>关于 Invoke,InvokeSync,BeginInvoke 的区别，参见：
+<a href="https://walterlv.oschina.io/post/dotnet/2017/09/26/dispatcher-invoke-async.html" target="_blank" rel="noopener noreferrer">深入了解 WPF Dispatcher 的工作原理（Invoke/InvokeAsync 部分） - walterlv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <p><img src="/assets/img/2018-11-16-12-11-10.2bce78c4.png" alt=""></p> <ol><li><p>将调用的Delegate和优先级包装成一个DispatcherOperation放入Dispatcher维护的优先级队列当中，这个Queue是按DispatcherPriority排序的，总是高优先级的DispatcherOperation先被处理。</p></li> <li><p>往当前线程的消息队列当中Post一个名为MsgProcessQueue的Message。（这个消息是WPF自己定义的。）这个消息被Post到消息队列之前，还要设置MSG.Handle，这个Handle就是Window 1#的Handle。指定Handle是为了在消息循环Dispatch消息的时候，指定哪个窗口的 WndProc 处理这个消息。</p></li> <li><p>消息循环读取消息。</p></li> <li><p>系统根据获取消息的Handle，发现跟Window1#的Handle相同，那么这个消息派发到Window1#的窗口过程，让其处理。</p></li> <li><p>在窗口过程中，优先级队列当中取一个DispatcherOperation。</p></li> <li><p>执行DispatcherOperation.Invoke方法，Invoke方法的核心就是调用DispatcherOperation构造时传入的Delegate，也就是Dispatcher.BeginInvoke传入的Delegate。最终这个Foo()方法就被执行了。</p></li></ol> <h2 id="_4-4-回顾"><a href="#_4-4-回顾" class="header-anchor">#</a> 4.4 回顾</h2> <ul><li>WPF 底层仍然靠信息循环来驱动。</li> <li>Dispatcher 使用消息循环来实现跨进程的委托调用。</li> <li>Dispatcher 属于线程，需要理解当前拿到的 Dispatcher 到底是哪个 Dispatcher 。</li></ul> <hr> <p>参考资料：</p> <p><a href="http://www.cnblogs.com/skyofbitbit/p/3649104.html" target="_blank" rel="noopener noreferrer">Windows 消息机制浅析 - bitbit - 博客园<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="http://blog.51cto.com/dreamylights/1325841" target="_blank" rel="noopener noreferrer">SendMessage、PostMessage原理-大白菜-51CTO博客<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://www.cnblogs.com/powertoolsteam/archive/2010/12/30/1921426.html" target="_blank" rel="noopener noreferrer">WPF的消息机制（一）- 让应用程序动起来 - 葡萄城技术团队 - 博客园<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://www.cnblogs.com/powertoolsteam/archive/2010/12/31/1922794.html" target="_blank" rel="noopener noreferrer">WPF的消息机制（二）- WPF内部的5个窗口之隐藏消息窗口 - 葡萄城技术团队 - 博客园<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://www.cnblogs.com/powertoolsteam/archive/2011/01/12/1933896.html" target="_blank" rel="noopener noreferrer">WPF的消息机制（三）- WPF内部的5个窗口之处理激活和关闭的消息窗口以及系统资源通知窗口 - 葡萄城技术团队 - 博客园<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://huangtengxiao.gitee.io/post/Why-not-Dispather.CurrentDispatcher.html" target="_blank" rel="noopener noreferrer">Why not Dispather.CurrentDispatcher - haungtengxiao<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://walterlv.com/post/dotnet/2017/09/26/dispatcher-invoke-async.html" target="_blank" rel="noopener noreferrer">深入了解 WPF Dispatcher 的工作原理（Invoke/InvokeAsync 部分） - walterlv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="http://winprog.org/tutorial/zh/start_cn.html" target="_blank" rel="noopener noreferrer">Tutorial: Getting Started<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间: </span> <span class="time">Friday, March 12, 2021 22:54</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/archive/2018/11-wait-task-with-timeout.html" class="prev">
+            实现可设置超时的Task
+          </a></span> <span class="next"><a href="/archive/2018/19-01-mutex.html">
+            Mutex 的正确打开方式
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-70334359></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.722109d5.js" defer></script><script src="/assets/js/3.ffa6ba0a.js" defer></script><script src="/assets/js/1.3a98487b.js" defer></script><script src="/assets/js/8.ae1aa72b.js" defer></script>
+  </body>
+</html>

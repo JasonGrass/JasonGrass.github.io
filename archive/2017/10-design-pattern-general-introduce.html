@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>设计模式-设计原则与分类 | 鱼仔布丁</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/assets/img/favicon.ico">
+    <meta name="description" content="木头上晒太阳的猫">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.fee5bc7b.css" as="style"><link rel="preload" href="/assets/js/app.722109d5.js" as="script"><link rel="preload" href="/assets/js/3.ffa6ba0a.js" as="script"><link rel="preload" href="/assets/js/1.3a98487b.js" as="script"><link rel="preload" href="/assets/js/49.f2a554f0.js" as="script"><link rel="prefetch" href="/assets/js/10.b8247354.js"><link rel="prefetch" href="/assets/js/100.3c368576.js"><link rel="prefetch" href="/assets/js/101.ad12d5e8.js"><link rel="prefetch" href="/assets/js/102.fd4a0de0.js"><link rel="prefetch" href="/assets/js/103.b2635f51.js"><link rel="prefetch" href="/assets/js/104.ac978358.js"><link rel="prefetch" href="/assets/js/11.894d3655.js"><link rel="prefetch" href="/assets/js/12.415b553e.js"><link rel="prefetch" href="/assets/js/13.bfd4873a.js"><link rel="prefetch" href="/assets/js/14.dc2624d4.js"><link rel="prefetch" href="/assets/js/15.9d24ecb7.js"><link rel="prefetch" href="/assets/js/16.ee697a2c.js"><link rel="prefetch" href="/assets/js/17.ec12f5e4.js"><link rel="prefetch" href="/assets/js/18.fb327192.js"><link rel="prefetch" href="/assets/js/19.cf12fe57.js"><link rel="prefetch" href="/assets/js/20.347b80ae.js"><link rel="prefetch" href="/assets/js/21.37f3d8f5.js"><link rel="prefetch" href="/assets/js/22.86f77293.js"><link rel="prefetch" href="/assets/js/23.6eddb38c.js"><link rel="prefetch" href="/assets/js/24.603560c1.js"><link rel="prefetch" href="/assets/js/25.53c4b8ce.js"><link rel="prefetch" href="/assets/js/26.77e77b5e.js"><link rel="prefetch" href="/assets/js/27.13a9a31e.js"><link rel="prefetch" href="/assets/js/28.93c3791b.js"><link rel="prefetch" href="/assets/js/29.c774e4ec.js"><link rel="prefetch" href="/assets/js/30.ef41e4cb.js"><link rel="prefetch" href="/assets/js/31.ec316998.js"><link rel="prefetch" href="/assets/js/32.572285c4.js"><link rel="prefetch" href="/assets/js/33.7a8dcd66.js"><link rel="prefetch" href="/assets/js/34.7404e5b8.js"><link rel="prefetch" href="/assets/js/35.9f8bb39a.js"><link rel="prefetch" href="/assets/js/36.eb0d6f2d.js"><link rel="prefetch" href="/assets/js/37.72609772.js"><link rel="prefetch" href="/assets/js/38.c54c9c8f.js"><link rel="prefetch" href="/assets/js/39.05b78cbd.js"><link rel="prefetch" href="/assets/js/4.46d042b8.js"><link rel="prefetch" href="/assets/js/40.f35b9671.js"><link rel="prefetch" href="/assets/js/41.bd28cc68.js"><link rel="prefetch" href="/assets/js/42.1891c6a4.js"><link rel="prefetch" href="/assets/js/43.d547be25.js"><link rel="prefetch" href="/assets/js/44.9a2fd1d3.js"><link rel="prefetch" href="/assets/js/45.a85af762.js"><link rel="prefetch" href="/assets/js/46.743d84bb.js"><link rel="prefetch" href="/assets/js/47.ea9fbde6.js"><link rel="prefetch" href="/assets/js/48.7b18d4dd.js"><link rel="prefetch" href="/assets/js/5.158e8413.js"><link rel="prefetch" href="/assets/js/50.0910163e.js"><link rel="prefetch" href="/assets/js/51.f72d0b8e.js"><link rel="prefetch" href="/assets/js/52.8386ed45.js"><link rel="prefetch" href="/assets/js/53.de972548.js"><link rel="prefetch" href="/assets/js/54.85487bd4.js"><link rel="prefetch" href="/assets/js/55.33e4c5f4.js"><link rel="prefetch" href="/assets/js/56.45316865.js"><link rel="prefetch" href="/assets/js/57.2116fd77.js"><link rel="prefetch" href="/assets/js/58.89c4a5a3.js"><link rel="prefetch" href="/assets/js/59.692850dd.js"><link rel="prefetch" href="/assets/js/6.9afe064a.js"><link rel="prefetch" href="/assets/js/60.6f533d80.js"><link rel="prefetch" href="/assets/js/61.9ec86b0f.js"><link rel="prefetch" href="/assets/js/62.c9360bb6.js"><link rel="prefetch" href="/assets/js/63.a8c2fda1.js"><link rel="prefetch" href="/assets/js/64.a16b549c.js"><link rel="prefetch" href="/assets/js/65.cf5e70af.js"><link rel="prefetch" href="/assets/js/66.f3157fe9.js"><link rel="prefetch" href="/assets/js/67.790195c5.js"><link rel="prefetch" href="/assets/js/68.7ae48210.js"><link rel="prefetch" href="/assets/js/69.96dc51c6.js"><link rel="prefetch" href="/assets/js/7.401cbcd8.js"><link rel="prefetch" href="/assets/js/70.11a40e4a.js"><link rel="prefetch" href="/assets/js/71.b6ae7d87.js"><link rel="prefetch" href="/assets/js/72.512a0b93.js"><link rel="prefetch" href="/assets/js/73.05b98a6a.js"><link rel="prefetch" href="/assets/js/74.cddffd7b.js"><link rel="prefetch" href="/assets/js/75.54f3d3d3.js"><link rel="prefetch" href="/assets/js/76.5c783006.js"><link rel="prefetch" href="/assets/js/77.d13ac0e2.js"><link rel="prefetch" href="/assets/js/78.5671dbcc.js"><link rel="prefetch" href="/assets/js/79.4da19b56.js"><link rel="prefetch" href="/assets/js/8.ae1aa72b.js"><link rel="prefetch" href="/assets/js/80.d380237d.js"><link rel="prefetch" href="/assets/js/81.a62535b0.js"><link rel="prefetch" href="/assets/js/82.4ee21e5f.js"><link rel="prefetch" href="/assets/js/83.f81aa120.js"><link rel="prefetch" href="/assets/js/84.d95ff057.js"><link rel="prefetch" href="/assets/js/85.b5a5e396.js"><link rel="prefetch" href="/assets/js/86.d22d71d6.js"><link rel="prefetch" href="/assets/js/87.e6a7f2f7.js"><link rel="prefetch" href="/assets/js/88.8c5f4b95.js"><link rel="prefetch" href="/assets/js/89.ec26aa03.js"><link rel="prefetch" href="/assets/js/9.fb0332e4.js"><link rel="prefetch" href="/assets/js/90.792db713.js"><link rel="prefetch" href="/assets/js/91.09a53f53.js"><link rel="prefetch" href="/assets/js/92.ced0d4af.js"><link rel="prefetch" href="/assets/js/93.52e8c11d.js"><link rel="prefetch" href="/assets/js/94.2e06b855.js"><link rel="prefetch" href="/assets/js/95.e59f293e.js"><link rel="prefetch" href="/assets/js/96.24b2e58f.js"><link rel="prefetch" href="/assets/js/97.930bba0a.js"><link rel="prefetch" href="/assets/js/98.58dcffc0.js"><link rel="prefetch" href="/assets/js/99.b56329f8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fee5bc7b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>鱼仔布丁</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>木头上晒太阳的猫</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>鱼仔布丁</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/working-cell.png" alt="鱼仔布丁" class="logo"> <span class="site-name">鱼仔布丁</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Notes
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/course_note/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/course_note/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Archive
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/archive/2017/" class="nav-link router-link-active"><i class="undefined"></i>
+  2017
+</a></li><li class="dropdown-item"><!----> <a href="/archive/2018/" class="nav-link"><i class="undefined"></i>
+  2018
+</a></li><li class="dropdown-item"><!----> <a href="/archive/vuepress-blog/" class="nav-link"><i class="undefined"></i>
+  博客搭建相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/小零识/" class="nav-link"><i class="undefined"></i>
+  小零识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程/" class="nav-link"><i class="undefined"></i>
+  编程
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂文/" class="nav-link"><i class="undefined"></i>
+  杂文
+</a></li><li class="dropdown-item"><!----> <a href="/categories/博客/" class="nav-link"><i class="undefined"></i>
+  博客
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据/" class="nav-link"><i class="undefined"></i>
+  数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/笔记/" class="nav-link"><i class="undefined"></i>
+  笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/assets/img/working-cell.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    鱼仔布丁
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>94</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>13</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6><li class="social-item" data-v-828910c6><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-828910c6></i></li><li class="social-item" data-v-828910c6><i class="iconfont reco-bokeyuan" style="color:#849b87;" data-v-828910c6></i></li></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Notes
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/course_note/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/course_note/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Archive
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/archive/2017/" class="nav-link router-link-active"><i class="undefined"></i>
+  2017
+</a></li><li class="dropdown-item"><!----> <a href="/archive/2018/" class="nav-link"><i class="undefined"></i>
+  2018
+</a></li><li class="dropdown-item"><!----> <a href="/archive/vuepress-blog/" class="nav-link"><i class="undefined"></i>
+  博客搭建相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/小零识/" class="nav-link"><i class="undefined"></i>
+  小零识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程/" class="nav-link"><i class="undefined"></i>
+  编程
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂文/" class="nav-link"><i class="undefined"></i>
+  杂文
+</a></li><li class="dropdown-item"><!----> <a href="/categories/博客/" class="nav-link"><i class="undefined"></i>
+  博客
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据/" class="nav-link"><i class="undefined"></i>
+  数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/笔记/" class="nav-link"><i class="undefined"></i>
+  笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>🍉 2017 归档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/archive/2017/" aria-current="page" class="sidebar-link">目录说明</a></li><li><a href="/archive/2017/08-Open-Command-Window-Here.html" class="sidebar-link">快速在文件夹打开命令行工具</a></li><li><a href="/archive/2017/08-vim-Survival.html" class="sidebar-link">Vim编辑器简明生存指南</a></li><li><a href="/archive/2017/09-hexo-github-blog.html" class="sidebar-link">用 Hexo + Github 搭建博客</a></li><li><a href="/archive/2017/10-FastStoneCapturePortable.html" class="sidebar-link">屏幕快速截图工具</a></li><li><a href="/archive/2017/10-VS-multi-project-debug.html" class="sidebar-link">工具-VisualStudio多解决方案联合调试</a></li><li><a href="/archive/2017/10-VS-plugins-note.html" class="sidebar-link">VS插件开发笔记</a></li><li><a href="/archive/2017/10-auto-dll-reference-change-tool.html" class="sidebar-link">Visual Studio DLL 引用替换工具</a></li><li><a href="/archive/2017/10-csharp-command-line-tools.html" class="sidebar-link">C# 调用命令行工具</a></li><li><a href="/archive/2017/10-csharp-dynamic.html" class="sidebar-link">C# 动态类型与动态编译简介</a></li><li><a href="/archive/2017/10-design-pattern-general-introduce.html" aria-current="page" class="active sidebar-link">设计模式-设计原则与分类</a></li><li><a href="/archive/2017/10-email.html" class="sidebar-link">怎样写好一封邮件</a></li><li><a href="/archive/2017/10-listbox-scrollviewer.html" class="sidebar-link">ListBox虚拟化时需要注意的一些小问题</a></li><li><a href="/archive/2017/10-multi-git-account.html" class="sidebar-link">Git多账号配置</a></li><li><a href="/archive/2017/11-csharp-reference-multi-version-dll.html" class="sidebar-link">C# 引用不同版本dll</a></li><li><a href="/archive/2017/11-note-git.html" class="sidebar-link">笔记-git中的几个基本概念</a></li><li><a href="/archive/2017/11-note-revert-on-git.html" class="sidebar-link">笔记-git中的回退</a></li><li><a href="/archive/2017/11-win-10-virtual-desktop-enhancer.html" class="sidebar-link">为Win10虚拟桌面设置不同背景</a></li><li><a href="/archive/2017/12-udisk-icon.html" class="sidebar-link">自定义U盘图标</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>设计模式-设计原则与分类</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>鱼仔布丁</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">设计模式-设计原则与分类</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>鱼仔布丁</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>10/14/2017</span></i> <i class="iconfont reco-eye" data-v-1ff7123e><span id="/archive/2017/10-design-pattern-general-introduce.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-1ff7123e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>设计模式</span></i></div></div> <div class="theme-reco-content content__default"><p>简要(真的很简要)介绍一些设计模式的基本原则与设计模式的分类。</p> <p><img src="http://images.cnitblog.com/blog/302985/201312/05141735-1f8d79992e0543caa881bb1dbd29ade7.png" alt=""></p> <h2 id="设计原则"><a href="#设计原则" class="header-anchor">#</a> 设计原则</h2> <h3 id="设计模式的作用"><a href="#设计模式的作用" class="header-anchor">#</a> 设计模式的作用</h3> <p>应对变化，提高复用。</p> <h3 id="实现层"><a href="#实现层" class="header-anchor">#</a> 实现层</h3> <p>如何用代码实现：</p> <ul><li><p>封装：隐藏内部实现</p></li> <li><p>继承：复用现有代码</p></li> <li><p>多态：改写对象行为</p></li></ul> <h3 id="原则"><a href="#原则" class="header-anchor">#</a> 原则</h3> <p>一些基本思想：</p> <ul><li><p>针对接口编程，而不是针对实现编程</p></li> <li><p>优先使用对象组合，而不是类继承</p></li> <li><p>封装变化点</p></li> <li><p>高内聚，低耦合</p></li></ul> <blockquote><p>高层/主模块：抽象的部分
+底层/次要模块：细节实现部分</p></blockquote> <ol><li><p>单一职责原则 SRP<br>
+一个类应该仅有一个引起变化的原因
+e.g. File 和 FileInfo</p></li> <li><p>开放封闭原则 OCP<br>
+对扩展开放，对更改封闭</p></li> <li><p>Liskov 替换原则 LSP<br>
+子类必须能够替换它们的基类（ is a）</p></li> <li><p>依赖倒置原则 DIP<br>
+高层模块不应该依赖于低层模块，二者都应该依赖于抽象
+抽象不应该依赖于实现细节，实现细节应该依赖于抽象</p></li> <li><p>接口隔离原则 ISP<br>
+不应该强迫客户程序依赖于它们不用的方法</p></li></ol> <hr> <h2 id="设计模式分类"><a href="#设计模式分类" class="header-anchor">#</a> 设计模式分类</h2> <h3 id="按照目的分类"><a href="#按照目的分类" class="header-anchor">#</a> 按照目的分类</h3> <ul><li><p>创建型 模式<br>
+创建型 模式 要解决的问题： new 的问题；
+new 的问题： 实现依赖，不能应对“具体实例化类型”的变化。</p></li> <li><p>结构型 模式<br>
+处理类与对象间的组合（对象与对象之间的耦合关系）</p></li> <li><p>行为型 模式<br>
+类与对象交互中的职责分配（对象与行为操作之间的耦合关系）
+行为请求者 与 行为实现者</p></li></ul> <h3 id="按照范围分类"><a href="#按照范围分类" class="header-anchor">#</a> 按照范围分类</h3> <ul><li><p>类模式<br>
+处理类与子类的静态关系</p></li> <li><p>对象模式<br>
+处理对象间的动态关系</p></li></ul> <hr> <h2 id="具体分类"><a href="#具体分类" class="header-anchor">#</a> 具体分类</h2> <ol><li><p><strong>组件协作模式</strong><br>
+1 模板方法 Template Method
+2 观察者 Observer / Event
+3 策略模式 Strategy</p></li> <li><p>单一职责模式<br> <strong>1 装饰模式 Decorator</strong>
+2 桥模式 Bridge</p></li> <li><p><strong>对象创建模式</strong><br>
+1 工厂方法 Factory Method
+2 抽象工厂 Abstract Factory
+3 原型模式 Prototype
+4 构建器 Builder</p></li> <li><p>对象性能模式<br> <strong>1 单例模式 Singleton</strong>
+2 享元模式 Flyweight</p></li> <li><p><strong>接口隔离模式</strong><br>
+1 外观模式 Facade
+2 代理模式 Proxy
+3 适配器 Adapter
+4 中介者 Mediator</p></li> <li><p>状态变化模式<br>
+1 状态模式 State
+2 备忘录 Memento</p></li> <li><p><strong>数据结构模式</strong><br>
+1 组合模式 Composite
+2 迭代器 Iterator
+3 职责链 Chain of Resposibility</p></li> <li><p>行为变化模式<br>
+1 访问器 Visitor
+2 命令 Command</p></li> <li><p>领域问题<br>
+1 解析器 Interpreter</p></li></ol></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间: </span> <span class="time">Friday, March 12, 2021 22:54</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/archive/2017/10-csharp-dynamic.html" class="prev">
+            C# 动态类型与动态编译简介
+          </a></span> <span class="next"><a href="/archive/2017/10-email.html">
+            怎样写好一封邮件
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-70334359></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.722109d5.js" defer></script><script src="/assets/js/3.ffa6ba0a.js" defer></script><script src="/assets/js/1.3a98487b.js" defer></script><script src="/assets/js/49.f2a554f0.js" defer></script>
+  </body>
+</html>

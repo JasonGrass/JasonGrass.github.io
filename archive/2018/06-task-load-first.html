@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 Task 实现提前加载 | 鱼仔布丁</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/assets/img/favicon.ico">
+    <meta name="description" content="木头上晒太阳的猫">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.fee5bc7b.css" as="style"><link rel="preload" href="/assets/js/app.722109d5.js" as="script"><link rel="preload" href="/assets/js/3.ffa6ba0a.js" as="script"><link rel="preload" href="/assets/js/1.3a98487b.js" as="script"><link rel="preload" href="/assets/js/58.89c4a5a3.js" as="script"><link rel="prefetch" href="/assets/js/10.b8247354.js"><link rel="prefetch" href="/assets/js/100.3c368576.js"><link rel="prefetch" href="/assets/js/101.ad12d5e8.js"><link rel="prefetch" href="/assets/js/102.fd4a0de0.js"><link rel="prefetch" href="/assets/js/103.b2635f51.js"><link rel="prefetch" href="/assets/js/104.ac978358.js"><link rel="prefetch" href="/assets/js/11.894d3655.js"><link rel="prefetch" href="/assets/js/12.415b553e.js"><link rel="prefetch" href="/assets/js/13.bfd4873a.js"><link rel="prefetch" href="/assets/js/14.dc2624d4.js"><link rel="prefetch" href="/assets/js/15.9d24ecb7.js"><link rel="prefetch" href="/assets/js/16.ee697a2c.js"><link rel="prefetch" href="/assets/js/17.ec12f5e4.js"><link rel="prefetch" href="/assets/js/18.fb327192.js"><link rel="prefetch" href="/assets/js/19.cf12fe57.js"><link rel="prefetch" href="/assets/js/20.347b80ae.js"><link rel="prefetch" href="/assets/js/21.37f3d8f5.js"><link rel="prefetch" href="/assets/js/22.86f77293.js"><link rel="prefetch" href="/assets/js/23.6eddb38c.js"><link rel="prefetch" href="/assets/js/24.603560c1.js"><link rel="prefetch" href="/assets/js/25.53c4b8ce.js"><link rel="prefetch" href="/assets/js/26.77e77b5e.js"><link rel="prefetch" href="/assets/js/27.13a9a31e.js"><link rel="prefetch" href="/assets/js/28.93c3791b.js"><link rel="prefetch" href="/assets/js/29.c774e4ec.js"><link rel="prefetch" href="/assets/js/30.ef41e4cb.js"><link rel="prefetch" href="/assets/js/31.ec316998.js"><link rel="prefetch" href="/assets/js/32.572285c4.js"><link rel="prefetch" href="/assets/js/33.7a8dcd66.js"><link rel="prefetch" href="/assets/js/34.7404e5b8.js"><link rel="prefetch" href="/assets/js/35.9f8bb39a.js"><link rel="prefetch" href="/assets/js/36.eb0d6f2d.js"><link rel="prefetch" href="/assets/js/37.72609772.js"><link rel="prefetch" href="/assets/js/38.c54c9c8f.js"><link rel="prefetch" href="/assets/js/39.05b78cbd.js"><link rel="prefetch" href="/assets/js/4.46d042b8.js"><link rel="prefetch" href="/assets/js/40.f35b9671.js"><link rel="prefetch" href="/assets/js/41.bd28cc68.js"><link rel="prefetch" href="/assets/js/42.1891c6a4.js"><link rel="prefetch" href="/assets/js/43.d547be25.js"><link rel="prefetch" href="/assets/js/44.9a2fd1d3.js"><link rel="prefetch" href="/assets/js/45.a85af762.js"><link rel="prefetch" href="/assets/js/46.743d84bb.js"><link rel="prefetch" href="/assets/js/47.ea9fbde6.js"><link rel="prefetch" href="/assets/js/48.7b18d4dd.js"><link rel="prefetch" href="/assets/js/49.f2a554f0.js"><link rel="prefetch" href="/assets/js/5.158e8413.js"><link rel="prefetch" href="/assets/js/50.0910163e.js"><link rel="prefetch" href="/assets/js/51.f72d0b8e.js"><link rel="prefetch" href="/assets/js/52.8386ed45.js"><link rel="prefetch" href="/assets/js/53.de972548.js"><link rel="prefetch" href="/assets/js/54.85487bd4.js"><link rel="prefetch" href="/assets/js/55.33e4c5f4.js"><link rel="prefetch" href="/assets/js/56.45316865.js"><link rel="prefetch" href="/assets/js/57.2116fd77.js"><link rel="prefetch" href="/assets/js/59.692850dd.js"><link rel="prefetch" href="/assets/js/6.9afe064a.js"><link rel="prefetch" href="/assets/js/60.6f533d80.js"><link rel="prefetch" href="/assets/js/61.9ec86b0f.js"><link rel="prefetch" href="/assets/js/62.c9360bb6.js"><link rel="prefetch" href="/assets/js/63.a8c2fda1.js"><link rel="prefetch" href="/assets/js/64.a16b549c.js"><link rel="prefetch" href="/assets/js/65.cf5e70af.js"><link rel="prefetch" href="/assets/js/66.f3157fe9.js"><link rel="prefetch" href="/assets/js/67.790195c5.js"><link rel="prefetch" href="/assets/js/68.7ae48210.js"><link rel="prefetch" href="/assets/js/69.96dc51c6.js"><link rel="prefetch" href="/assets/js/7.401cbcd8.js"><link rel="prefetch" href="/assets/js/70.11a40e4a.js"><link rel="prefetch" href="/assets/js/71.b6ae7d87.js"><link rel="prefetch" href="/assets/js/72.512a0b93.js"><link rel="prefetch" href="/assets/js/73.05b98a6a.js"><link rel="prefetch" href="/assets/js/74.cddffd7b.js"><link rel="prefetch" href="/assets/js/75.54f3d3d3.js"><link rel="prefetch" href="/assets/js/76.5c783006.js"><link rel="prefetch" href="/assets/js/77.d13ac0e2.js"><link rel="prefetch" href="/assets/js/78.5671dbcc.js"><link rel="prefetch" href="/assets/js/79.4da19b56.js"><link rel="prefetch" href="/assets/js/8.ae1aa72b.js"><link rel="prefetch" href="/assets/js/80.d380237d.js"><link rel="prefetch" href="/assets/js/81.a62535b0.js"><link rel="prefetch" href="/assets/js/82.4ee21e5f.js"><link rel="prefetch" href="/assets/js/83.f81aa120.js"><link rel="prefetch" href="/assets/js/84.d95ff057.js"><link rel="prefetch" href="/assets/js/85.b5a5e396.js"><link rel="prefetch" href="/assets/js/86.d22d71d6.js"><link rel="prefetch" href="/assets/js/87.e6a7f2f7.js"><link rel="prefetch" href="/assets/js/88.8c5f4b95.js"><link rel="prefetch" href="/assets/js/89.ec26aa03.js"><link rel="prefetch" href="/assets/js/9.fb0332e4.js"><link rel="prefetch" href="/assets/js/90.792db713.js"><link rel="prefetch" href="/assets/js/91.09a53f53.js"><link rel="prefetch" href="/assets/js/92.ced0d4af.js"><link rel="prefetch" href="/assets/js/93.52e8c11d.js"><link rel="prefetch" href="/assets/js/94.2e06b855.js"><link rel="prefetch" href="/assets/js/95.e59f293e.js"><link rel="prefetch" href="/assets/js/96.24b2e58f.js"><link rel="prefetch" href="/assets/js/97.930bba0a.js"><link rel="prefetch" href="/assets/js/98.58dcffc0.js"><link rel="prefetch" href="/assets/js/99.b56329f8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fee5bc7b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>鱼仔布丁</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>木头上晒太阳的猫</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>鱼仔布丁</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/working-cell.png" alt="鱼仔布丁" class="logo"> <span class="site-name">鱼仔布丁</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Notes
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/course_note/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/course_note/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Archive
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/archive/2017/" class="nav-link"><i class="undefined"></i>
+  2017
+</a></li><li class="dropdown-item"><!----> <a href="/archive/2018/" class="nav-link router-link-active"><i class="undefined"></i>
+  2018
+</a></li><li class="dropdown-item"><!----> <a href="/archive/vuepress-blog/" class="nav-link"><i class="undefined"></i>
+  博客搭建相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/小零识/" class="nav-link"><i class="undefined"></i>
+  小零识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程/" class="nav-link"><i class="undefined"></i>
+  编程
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂文/" class="nav-link"><i class="undefined"></i>
+  杂文
+</a></li><li class="dropdown-item"><!----> <a href="/categories/博客/" class="nav-link"><i class="undefined"></i>
+  博客
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据/" class="nav-link"><i class="undefined"></i>
+  数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/笔记/" class="nav-link"><i class="undefined"></i>
+  笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/assets/img/working-cell.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    鱼仔布丁
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>94</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>13</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6><li class="social-item" data-v-828910c6><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-828910c6></i></li><li class="social-item" data-v-828910c6><i class="iconfont reco-bokeyuan" style="color:#849b87;" data-v-828910c6></i></li></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Notes
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/course_note/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/course_note/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      Archive
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/archive/2017/" class="nav-link"><i class="undefined"></i>
+  2017
+</a></li><li class="dropdown-item"><!----> <a href="/archive/2018/" class="nav-link router-link-active"><i class="undefined"></i>
+  2018
+</a></li><li class="dropdown-item"><!----> <a href="/archive/vuepress-blog/" class="nav-link"><i class="undefined"></i>
+  博客搭建相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/小零识/" class="nav-link"><i class="undefined"></i>
+  小零识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程/" class="nav-link"><i class="undefined"></i>
+  编程
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂文/" class="nav-link"><i class="undefined"></i>
+  杂文
+</a></li><li class="dropdown-item"><!----> <a href="/categories/博客/" class="nav-link"><i class="undefined"></i>
+  博客
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据/" class="nav-link"><i class="undefined"></i>
+  数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/笔记/" class="nav-link"><i class="undefined"></i>
+  笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>🍉 2018 归档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/archive/2018/" aria-current="page" class="sidebar-link">目录说明</a></li><li><a href="/archive/2018/01-wpd-resources-ref.html" class="sidebar-link">笔记-WPF程序集资源文件的引用</a></li><li><a href="/archive/2018/02-TortoiseGit-ssh.html" class="sidebar-link">TortoiseGit配置ssh服务</a></li><li><a href="/archive/2018/03-data-share-over-progress-csharp.html" class="sidebar-link">C#进程间数据共享的简单实现</a></li><li><a href="/archive/2018/04-Archive-Nuget.html" class="sidebar-link">笔记归档 - Nuget入门</a></li><li><a href="/archive/2018/04-visual-key-table.html" class="sidebar-link">笔记归档 - 虚拟键码对照表</a></li><li><a href="/archive/2018/06-mac-command-line-beauty.html" class="sidebar-link">Mac 命令行美化</a></li><li><a href="/archive/2018/06-task-load-first.html" aria-current="page" class="active sidebar-link">使用 Task 实现提前加载</a></li><li><a href="/archive/2018/07-csharp-enumerator.html" class="sidebar-link">迭代器模式 与 C# IEnumerator/IEnumerable</a></li><li><a href="/archive/2018/07-vimium-shortcut.html" class="sidebar-link">Vimium 快捷键笔记</a></li><li><a href="/archive/2018/08-coding-standard-for-net.html" class="sidebar-link">读书笔记 - 改善 C# 程序的157个建议（部分）</a></li><li><a href="/archive/2018/08-deploy-asp.net-core-on-windows.html" class="sidebar-link">Windows 服务器部署 Asp.net core</a></li><li><a href="/archive/2018/08-ftp-server-on-windows.html" class="sidebar-link">在 Windows 系统上安装 FTP 服务</a></li><li><a href="/archive/2018/08-logstash-es-kibana-start.html" class="sidebar-link">ELK入门介绍</a></li><li><a href="/archive/2018/08-php-on-windows.html" class="sidebar-link">在 Windows 系统上安装 PHP 服务</a></li><li><a href="/archive/2018/08-vs-code-setting-sync.html" class="sidebar-link">同步 Visual Studio Code 的设置</a></li><li><a href="/archive/2018/11-does-not-provide-shell-access.html" class="sidebar-link">GITEE.COM does not provide shell access. 是怎么回事。</a></li><li><a href="/archive/2018/11-move-files-from-c-dick.html" class="sidebar-link">安全转移C盘中软件的缓存文件</a></li><li><a href="/archive/2018/11-wait-task-with-timeout.html" class="sidebar-link">实现可设置超时的Task</a></li><li><a href="/archive/2018/11-windows-message-loop.html" class="sidebar-link">Windows 消息循环</a></li><li><a href="/archive/2018/19-01-mutex.html" class="sidebar-link">Mutex 的正确打开方式</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>使用 Task 实现提前加载</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>鱼仔布丁</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">使用 Task 实现提前加载</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>鱼仔布丁</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>6/16/2018</span></i> <i class="iconfont reco-eye" data-v-1ff7123e><span id="/archive/2018/06-task-load-first.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-1ff7123e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>csharp</span></i></div></div> <div class="theme-reco-content content__default"><p>介绍一种/两种可以提前做点什么事情的方法。</p> <h3 id="场景"><a href="#场景" class="header-anchor">#</a> 场景</h3> <p>在UI线程中执行耗时操作，如读取大文件，为了不造成UI卡顿，常采用异步加载的方式，即 async/await 。
+通常的写法是这样的：</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task</span> <span class="token function">DoSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// init work</span>
+    <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// IO          </span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// after work </span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="问题与需求"><a href="#问题与需求" class="header-anchor">#</a> 问题与需求</h3> <p>这里虽然解决了UI卡顿的问题，但需要得到最终结果（即 after work 中的代码执行），仍然需要等待。<br>
+在部分场景中，如果可以提前执行耗时代码，则可以减少等待时间。</p> <p>设想的代码类似与这样：</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code>
+<span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">EarlierWork</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 提前执行耗时操作，如从一个大文件中查找数据。</span>
+<span class="token punctuation">}</span>
+
+priavte <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">DoSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// init</span>
+    <span class="token comment">// 获取之前提前执行的结果，如果执行还没有结束，则异步等待执行完成，获取结果后继续执行。</span>
+    <span class="token comment">// after work </span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>这里适用的场景，需要是 <code>EarlierWork</code> 比 <code>DoSomething</code> 先执行一段时间，而且在 <code>EasilerWork</code> 执行时，就已经可以获取相关的数据，不缺失必要的参数。（这样的场景……额，可能并不多）</p> <h3 id="实现"><a href="#实现" class="header-anchor">#</a> 实现</h3> <p>这里的实现有两种方式，都是基于 C# 的 async/await 异步模型。</p> <h5 id="实现一-awaiter"><a href="#实现一-awaiter" class="header-anchor">#</a> 实现一： <em>awaiter</em></h5> <div class="language-csharp extra-class"><pre class="language-csharp"><code>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Runtime<span class="token punctuation">.</span>CompilerServices</span><span class="token punctuation">;</span>  
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> <span class="token class-name">TaskAwaiter<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span></span> _getStringDataAwaiter<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">EarlierWork</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 提前执行耗时操作，如从一个大文件中查找数据。</span>
+    _getStringDataAwaiter <span class="token operator">=</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 耗时操作</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Data&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetAwaiter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task</span> <span class="token function">DoSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// init</span>
+    <span class="token comment">// 获取之前提前执行的结果，如果执行还没有结束，则异步等待执行完成，获取结果后继续执行。</span>
+    <span class="token class-name"><span class="token keyword">string</span></span> data <span class="token operator">=</span> <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>_getStringDataAwaiter<span class="token punctuation">.</span><span class="token function">GetResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// after work </span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>注意，这里需要使用 <code>Task.Run()</code> 的方式调用获取结果的 <code>GetResult</code> 方法，否则会是调用线程卡顿，即，如果调用线程是UI，则会造成UI卡顿。</p> <p>需要注意的是，TaskAwaiter 这个API是提供给编译器使用的，<strong>不建议在生产环境中使用</strong>。</p> <blockquote><p>The System.Runtime.CompilerServices namespace provides functionality for compiler writers who use managed code to specify attributes in metadata that affect the run-time behavior of the common language runtime.</p></blockquote> <br> <blockquote><p>This API supports the product infrastructure and is not intended to be used directly from your code.<br> <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.runtime.compilerservices.taskawaiter?view=netframework-4.7.1" target="_blank" rel="noopener noreferrer">TaskAwaiter Struct (System.Runtime.CompilerServices) | Microsoft Docs<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h5 id="实现二"><a href="#实现二" class="header-anchor">#</a> 实现二：</h5> <p>推荐的实现方式。</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> Task<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> _getStringDataTask；
+
+<span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">EarlierWork</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 提前执行耗时操作，如从一个大文件中查找数据。</span>
+    _getStringDataTask <span class="token operator">=</span> <span class="token function">CreateGetDataTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span></span> <span class="token function">CreateGetDataTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 耗时操作</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Data&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ConfigureAwait</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 必须写 ConfigureAwait(false) </span>
+
+    <span class="token comment">// 此处的代码将不会返回原线程执行；不过这里一般不写代码。</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">DoSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// init</span>
+    <span class="token comment">// 获取之前提前执行的结果，如果执行还没有结束，则异步等待执行完成，获取结果后继续执行。</span>
+    <span class="token class-name"><span class="token keyword">string</span></span> data <span class="token operator">=</span> _getStringDataTask<span class="token punctuation">.</span>Result<span class="token punctuation">;</span>
+    <span class="token comment">// after work </span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>这种实现方式需要注意死锁问题，如果不使用 <code>ConfigureAwait(false)</code> ，则会造成死锁。</p> <p>关于死锁的更多内容，可以看这里：</p> <ul><li><a href="https://walterlv.gitee.io/post/deadlock-in-task-wait.html" target="_blank" rel="noopener noreferrer">使用 Task.Wait()？立刻死锁（deadlock） - walterlv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://walterlv.gitee.io/post/using-configure-await-to-avoid-deadlocks.html" target="_blank" rel="noopener noreferrer">在编写异步方法时，使用 ConfigureAwait(false) 避免使用者死锁 - walterlv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="一个神奇的异步转同步的方式"><a href="#一个神奇的异步转同步的方式" class="header-anchor">#</a> 一个神奇的异步转同步的方式</h3> <p>有如下一个 <code>GetDataAsync</code> 方法，使用了 async/await ，所以调用方也必须使用 async/await 的方式，不然就失去了同步的特性。<br>
+问题是，有时候 async/await 引起的病毒传播所带来的改动，可能会很大，尤其对于旧代码。</p> <p>如何实现一种诡异的调用方法，来调用这种方法呢？</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Work</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">bool</span><span class="token punctuation">&gt;</span></span> <span class="token function">GetDataAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+</code></pre></div><p>诡异代码如下：</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Work</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">bool</span></span> <span class="token function">GetData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">bool</span><span class="token punctuation">&gt;</span></span> getDataTask <span class="token operator">=</span> <span class="token function">CreateGetDataTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> getDataTask<span class="token punctuation">.</span>Result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// private </span>
+    <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">bool</span><span class="token punctuation">&gt;</span></span> <span class="token function">CreateGetDataTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token function">GetAvaiableAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ConfigureAwait</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 必须写 ConfigureAwait(false) </span>
+
+        <span class="token comment">// 使用下面这段代码会死锁</span>
+        <span class="token comment">// return await GetAvaiableAsync().ConfigureAwait(false);</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>这样，外部就可以调用 <code>GetData</code> 这个很普通的方法，而不用调用 <code>GetDataAsync</code> 这个方法了。</p> <p>其实就是上面提到的实现方法二，<br>
+但这里需要注意的是，<code>GetData</code> 方法会引发线程阻塞，如果在UI线程调用，则会卡UI，非特殊情况，不建议这么使用。<br>
+即使使用，也不要将 <code>GetData</code> 作为一般方法对外公开。</p> <p>关于异步转同步，可参见：
+<a href="https://walterlv.com/post/convert-async-to-sync-by-push-frame.html" target="_blank" rel="noopener noreferrer">将 async/await 异步代码转换为安全的不会死锁的同步代码（使用 PushFrame） - walterlv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <hr> <p>END</p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间: </span> <span class="time">Friday, March 12, 2021 22:54</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/archive/2018/06-mac-command-line-beauty.html" class="prev">
+            Mac 命令行美化
+          </a></span> <span class="next"><a href="/archive/2018/07-csharp-enumerator.html">
+            迭代器模式 与 C# IEnumerator/IEnumerable
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-70334359></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.722109d5.js" defer></script><script src="/assets/js/3.ffa6ba0a.js" defer></script><script src="/assets/js/1.3a98487b.js" defer></script><script src="/assets/js/58.89c4a5a3.js" defer></script>
+  </body>
+</html>
